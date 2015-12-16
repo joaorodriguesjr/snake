@@ -15,6 +15,7 @@ class Game {
         this.snake.init();
 
         this.grid.spawnFruit();
+        this.grid.markSnakeAt(this.snake.head);
     }
 
     initLevels() {

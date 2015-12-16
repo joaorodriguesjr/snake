@@ -1,15 +1,22 @@
 describe('Game', function () {
-    var game;
-    var grid  = {
+    var game, grid, snake;
+
+    grid  = {
+        init: function () {},
         spawnFruit: function () {},
+        markSnakeAt: function () {}
+    };
+
+    snake = {
+        head: {},
         init: function () {}
     };
-    var snake = {init: function () {}};
 
     beforeEach(function () {
         spyOn(snake, 'init');
         spyOn(grid , 'init');
         spyOn(grid , 'spawnFruit');
+        spyOn(grid , 'markSnakeAt');
 
         game  = new Game(grid, snake);
     });
@@ -44,5 +51,9 @@ describe('Game', function () {
 
     it('has a fruit', function () {
         expect(grid.spawnFruit).toHaveBeenCalled();
+    });
+
+    it('marks the snake on grid', function () {
+        expect(grid.markSnakeAt).toHaveBeenCalledWith(snake.head);
     });
 });
