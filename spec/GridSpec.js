@@ -20,4 +20,9 @@ describe('Grid', function () {
             expect(grid .cells[row][col]).toBe(0);
         }}
     });
+
+    it('calculates empty cells', function () {
+        var empty = grid.calculateEmptyCells();
+        expect(empty.length).toBe(dimensions.rows * dimensions.cols);
+    });
 });
