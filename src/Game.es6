@@ -13,6 +13,8 @@ class Game {
         this.level = this.levels.shift();
         this.grid.init();
         this.snake.init();
+
+        this.grid.spawnFruit();
     }
 
     initLevels() {

@@ -1,11 +1,15 @@
 describe('Game', function () {
     var game;
-    var grid  = {init: function () {}};
+    var grid  = {
+        spawnFruit: function () {},
+        init: function () {}
+    };
     var snake = {init: function () {}};
 
     beforeEach(function () {
-        spyOn(grid , 'init');
         spyOn(snake, 'init');
+        spyOn(grid , 'init');
+        spyOn(grid , 'spawnFruit');
 
         game  = new Game(grid, snake);
     });
@@ -36,5 +40,9 @@ describe('Game', function () {
 
     it('has score 0', function () {
         expect(game.score).toBe(0);
+    });
+
+    it('has a fruit', function () {
+        expect(grid.spawnFruit).toHaveBeenCalled();
     });
 });
