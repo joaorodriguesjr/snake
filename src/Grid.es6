@@ -57,4 +57,13 @@ class Grid {
     hasSnakeAt(position) {
         return this.cells[position.row][position.col] === Cell.SNAKE;
     }
+
+    hasWallAt(position) {
+        return position.row < 0 || position.row > this.dimensions.rows - 1 ||
+               position.col < 0 || position.col > this.dimensions.cols - 1;
+    }
+
+    detectCollision(position) {
+        return this.hasWallAt(position) || this.hasSnakeAt(position);
+    }
 }

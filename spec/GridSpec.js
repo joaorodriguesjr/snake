@@ -53,4 +53,11 @@ describe('Grid', function () {
         expect(grid.hasSnakeAt(position)).toBe(true);
     });
 
+    it('verifies wall collision', function () {
+        expect(grid.hasWallAt({row: -1, col: -1})).toBe(true);
+    });
+
+    it('detects general collision', function () {
+        expect(grid.detectCollision({row: 1, col: 1})).toBe(false);
+    });
 });
