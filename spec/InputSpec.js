@@ -12,32 +12,32 @@ describe('Input', function () {
         keyDownListener = input.createKeyDownListener();
     });
 
-    it('holds a Snake object', function () {
+    it('has a Snake object', function () {
         expect(input.snake).toBe(snake);
     });
 
-    it('turns the snake to the left', function () {
+    it('turns the snake left', function () {
         spyOn(snake, 'turnLeft');
         keyDownListener({keyCode: 37});
 
         expect(snake.turnLeft).toHaveBeenCalled();
     });
 
-    it('turns the snake to up', function () {
+    it('turns the snake up', function () {
         spyOn(snake, 'turnUp');
         keyDownListener({keyCode: 38});
 
         expect(snake.turnUp).toHaveBeenCalled();
     });
 
-    it('turns the snake to the right', function () {
+    it('turns the snake right', function () {
         spyOn(snake, 'turnRight');
         keyDownListener({keyCode: 39});
 
         expect(snake.turnRight).toHaveBeenCalled();
     });
 
-    it('turns the snake to down', function () {
+    it('turns the snake down', function () {
         spyOn(snake, 'turnDown');
         keyDownListener({keyCode: 40});
 
