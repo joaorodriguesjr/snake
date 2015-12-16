@@ -82,4 +82,16 @@ describe('Game', function () {
         expect(snake.advanceTo).toHaveBeenCalled();
         expect(grid.markSnakeAt).toHaveBeenCalled();
     });
+
+    it('handles score', function () {
+        game.handleScore();
+        expect(grid.spawnFruit).toHaveBeenCalled();
+        expect(game.score).toBe(game.level.score);
+    });
+
+    it('level up', function () {
+        game.score = 200;
+        game.handleScore();
+        expect(game.level.ID).toBe(2);
+    });
 });

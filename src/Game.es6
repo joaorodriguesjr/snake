@@ -41,9 +41,18 @@ class Game {
         this.grid.markSnakeAt(this.snake.head);
     }
 
-    handleCollision() {}
+    handleCollision() {
+        this.init();
+    }
 
-    handleScore() {}
+    handleScore() {
+        this.grid.spawnFruit();
+        this.score += this.level.score;
+
+        if (this.score >= this.level.up) {
+            this.level  = this.levels.shift(); // FIXME: It may break
+        }
+    }
 
     initLevels() {
         this.levels = [
