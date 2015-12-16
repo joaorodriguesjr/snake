@@ -34,4 +34,19 @@ class Grid {
 
         return empty;
     }
+
+    spawnFruit() {
+        let empty  = this.calculateEmptyCells();
+        let random = Math.floor(Math.random() * (empty.length - 1));
+
+        this.markFruitAt(empty[random]);
+    }
+
+    markFruitAt(position) {
+        this.cells[position.row][position.col] = Cell.FRUIT;
+    }
+
+    hasFruitAt(position) {
+        return this.cells[position.row][position.col] === Cell.FRUIT;
+    }
 }

@@ -25,4 +25,20 @@ describe('Grid', function () {
         var empty = grid.calculateEmptyCells();
         expect(empty.length).toBe(dimensions.rows * dimensions.cols);
     });
+
+    it('marks fruit at a position', function () {
+        grid.markFruitAt({row: 1, col: 1});
+        expect(grid.cells[1][1]).toBe(Cell.FRUIT);
+    });
+
+    it('verifies fruit existence', function () {
+        var position = {row: 1, col: 1};
+        grid.markFruitAt(position);
+        expect(grid.hasFruitAt(position)).toBe(true);
+    });
+
+    it('spawns fruit', function () {
+        grid.spawnFruit();
+        expect(grid.calculateEmptyCells().length).toBe(dimensions.rows * dimensions.cols - 1);
+    });
 });
