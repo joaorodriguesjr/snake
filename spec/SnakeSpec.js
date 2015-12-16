@@ -40,4 +40,43 @@ describe('Snake', function () {
         var next = snake.calculateNextPosition();
         expect(next.col).toBe(2);
     });
+
+    it('advances to a position', function () {
+        snake.advanceTo({row: 1, col: 2});
+
+        expect(snake.head.col).toBe(2);
+        expect(snake.parts.length).toBe(2);
+    });
+
+    it('pulls the tail', function () {
+        var tail = snake.pullTail();
+
+        expect(tail.row).toBe(1);
+        expect(tail.col).toBe(1);
+        expect(snake.parts.length).toBe(0);
+    });
+
+    it('turns left', function () {
+        snake.direction = Direction.DOWN;
+        snake.turnLeft();
+        expect(snake.direction).toBe(Direction.LEFT);
+    });
+
+    it('turns up', function () {
+        snake.direction = Direction.RIGHT;
+        snake.turnUp();
+        expect(snake.direction).toBe(Direction.UP);
+    });
+
+    it('turns right', function () {
+        snake.direction = Direction.UP;
+        snake.turnRight();
+        expect(snake.direction).toBe(Direction.RIGHT);
+    });
+
+    it('turns down', function () {
+        snake.direction = Direction.LEFT;
+        snake.turnDown();
+        expect(snake.direction).toBe(Direction.DOWN);
+    });
 });

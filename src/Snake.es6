@@ -28,4 +28,40 @@ class Snake {
 
         return {row, col};
     }
+
+    advanceTo(position) {
+        this.parts.unshift(this.head = position);
+    }
+
+    pullTail() {
+        return this.parts.pop();
+    }
+
+    turnLeft() {
+        if (this.direction === Direction.RIGHT)
+            return;
+
+        this.direction = Direction.LEFT;
+    }
+
+    turnUp() {
+        if (this.direction === Direction.DOWN)
+            return;
+
+        this.direction = Direction.UP;
+    }
+
+    turnRight() {
+        if (this.direction === Direction.LEFT)
+            return;
+
+        this.direction = Direction.RIGHT;
+    }
+
+    turnDown() {
+        if (this.direction === Direction.UP)
+            return;
+
+        this.direction = Direction.DOWN;
+    }
 }
