@@ -49,7 +49,7 @@ describe('Game', function () {
         expect(game.score).toBe(0);
     });
 
-    it('has a fruit', function () {
+    it('spawns a fruit on grid', function () {
         expect(grid.spawnFruit).toHaveBeenCalled();
     });
 
