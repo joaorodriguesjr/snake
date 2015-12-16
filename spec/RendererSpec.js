@@ -1,10 +1,32 @@
 describe('Renderer', function () {
-    var renderer, canvas, dimensions;
+    var renderer, canvas, dimensions, state;
 
     beforeEach(function () {
-        context    = {};
-        canvas     = {getContext: function () {}};
+        canvas  = {getContext: function () {}};
+        context = {
+            rect:      function () {},
+            stroke:    function () {},
+            fillText:  function () {},
+            beginPath: function () {},
+            clearRect: function () {}
+        };
         dimensions = {grid: {rows: 20, cols: 25}, cell: {width: 25, height: 25}};
+
+        state = {
+            score: 0,
+            level: {ID: 1},
+            grid: {cells: []}
+        };
+
+        var row, col;
+        for (row = 0; row < dimensions.grid.rows; row += 1) {
+            state.grid.cells[row] = [];
+        }
+
+        for (row = 0; row < dimensions.grid.rows; row += 1) {
+        for (col = 0; col < dimensions.grid.cols; col += 1) {
+            state.grid.cells[row][col] = 0;
+        }}
 
         spyOn(canvas, 'getContext').and.returnValue(context);
         renderer = new Renderer(canvas, dimensions);
@@ -29,5 +51,39 @@ describe('Renderer', function () {
 
     it('sets canvas height', function () {
         expect(canvas.height).toBe(dimensions.grid.rows * dimensions.cell.height);
+    });
+
+    it('clears the canvas context', function () {
+        spyOn(context, 'clearRect');
+        renderer.render(state);
+        expect(context.clearRect).toHaveBeenCalledWith(0, 0, canvas.width, canvas.height);
+    });
+
+    it('sets the context font family', function () {
+        renderer.render(state);
+        expect(context.font).toBe('15px Monospace');
+    });
+
+    it('renders the score', function () {
+        spyOn(context, 'fillText');
+        renderer.render(state);
+        expect(context.fillText).toHaveBeenCalledWith('SCORE:0', 50, 50);
+    });
+
+    it('renders the level', function () {
+        spyOn(context, 'fillText');
+        renderer.render(state);
+        expect(context.fillText).toHaveBeenCalledWith('LEVEL:1', 50, 100);
+    });
+
+    it('renders an object', function () {
+        state.grid.cells[0][0] = 1;
+        spyOn(context, 'beginPath');
+        spyOn(context, 'stroke');
+        spyOn(context, 'rect');
+        renderer.render(state);
+        expect(context.beginPath).toHaveBeenCalled();
+        expect(context.stroke).toHaveBeenCalled();
+        expect(context.rect).toHaveBeenCalledWith(0, 0, 25, 25);
     });
 });
