@@ -18,6 +18,33 @@ class Game {
         this.grid.markSnakeAt(this.snake.head);
     }
 
+    update() {
+        let next = this.snake.calculateNextPosition();
+
+        if (this.grid.detectCollision(next)) {
+            this.handleCollision();
+        } else {
+            this.moveSnakeTo(next);
+        }
+
+        return this;
+    }
+
+    moveSnakeTo(position) {
+        if (this.grid.hasFruitAt(position)) {
+            this.handleScore();
+        } else {
+            this.grid.clearCell(this.snake.pullTail());
+        }
+
+        this.snake.advanceTo(position);
+        this.grid.markSnakeAt(this.snake.head);
+    }
+
+    handleCollision() {}
+
+    handleScore() {}
+
     initLevels() {
         this.levels = [
             {ID: 1 , speed: 10, score: 50 , up: 200  },

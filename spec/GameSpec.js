@@ -4,12 +4,18 @@ describe('Game', function () {
     grid  = {
         init: function () {},
         spawnFruit: function () {},
-        markSnakeAt: function () {}
+        markSnakeAt: function () {},
+        hasFruitAt: function () {},
+        detectCollision: function () {},
+        clearCell: function () {}
     };
 
     snake = {
         head: {},
-        init: function () {}
+        init: function () {},
+        calculateNextPosition: function () {},
+        advanceTo: function () {},
+        pullTail: function () {}
     };
 
     beforeEach(function () {
@@ -55,5 +61,25 @@ describe('Game', function () {
 
     it('marks the snake on grid', function () {
         expect(grid.markSnakeAt).toHaveBeenCalledWith(snake.head);
+    });
+
+    it('updates the state', function () {
+        var next = {};
+
+        spyOn(snake, 'calculateNextPosition').and.returnValue(next);
+        spyOn(grid , 'detectCollision').and.returnValue(false);
+        spyOn(grid , 'hasFruitAt').and.returnValue(false);
+        spyOn(grid , 'clearCell');
+        spyOn(snake, 'pullTail');
+        spyOn(snake, 'advanceTo');
+        var state = game.update();
+
+        expect(snake.calculateNextPosition).toHaveBeenCalled();
+        expect(grid.detectCollision).toHaveBeenCalledWith(next);
+        expect(grid.hasFruitAt).toHaveBeenCalledWith(next);
+        expect(grid.clearCell).toHaveBeenCalled();
+        expect(snake.pullTail).toHaveBeenCalled();
+        expect(snake.advanceTo).toHaveBeenCalled();
+        expect(grid.markSnakeAt).toHaveBeenCalled();
     });
 });
