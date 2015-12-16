@@ -60,4 +60,9 @@ describe('Grid', function () {
     it('detects general collision', function () {
         expect(grid.detectCollision({row: 1, col: 1})).toBe(false);
     });
+
+    it('clears a cell', function () {
+        grid.clearCell({row: 1, col: 1});
+        expect(grid.cells[1][1]).toBe(Cell.EMPTY);
+    });
 });

@@ -66,4 +66,8 @@ class Grid {
     detectCollision(position) {
         return this.hasWallAt(position) || this.hasSnakeAt(position);
     }
+
+    clearCell(position) {
+        this.cells[position.row][position.col] = Cell.EMPTY;
+    }
 }
