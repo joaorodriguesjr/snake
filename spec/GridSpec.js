@@ -41,4 +41,16 @@ describe('Grid', function () {
         grid.spawnFruit();
         expect(grid.calculateEmptyCells().length).toBe(dimensions.rows * dimensions.cols - 1);
     });
+
+    it('marks snake at a position', function () {
+        grid.markSnakeAt({row: 1, col: 1});
+        expect(grid.cells[1][1]).toBe(Cell.SNAKE);
+    });
+
+    it('verifies snake existence', function () {
+        var position = {row: 1, col: 1};
+        grid.markSnakeAt(position);
+        expect(grid.hasSnakeAt(position)).toBe(true);
+    });
+
 });

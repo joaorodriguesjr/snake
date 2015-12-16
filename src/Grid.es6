@@ -49,4 +49,12 @@ class Grid {
     hasFruitAt(position) {
         return this.cells[position.row][position.col] === Cell.FRUIT;
     }
+
+    markSnakeAt(position) {
+        this.cells[position.row][position.col] = Cell.SNAKE;
+    }
+
+    hasSnakeAt(position) {
+        return this.cells[position.row][position.col] === Cell.SNAKE;
+    }
 }
