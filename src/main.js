@@ -1,24 +1,27 @@
-(function() {
-    let dimensions = {grid: {rows: 20, cols: 25}, cell: {width: 25, height: 25}};
-    let renderer   = new Renderer(document.createElement('canvas'), dimensions);
-    let grid       = new Grid(dimensions.grid);
-    let snake      = new Snake();
-    let game       = new Game(grid, snake);
-    let input      = new Input(snake);
+import Renderer from './Renderer';
+import Grid     from './Grid';
+import Snake    from './Snake';
+import Game     from './Game';
+import Input    from './Input';
 
-    document.addEventListener('keydown', input.createKeyDownListener());
-    document.body.appendChild(renderer.canvas);
+let dimensions = {grid: {rows: 20, cols: 25}, cell: {width: 25, height: 25}};
+let renderer   = new Renderer(document.createElement('canvas'), dimensions);
+let grid       = new Grid(dimensions.grid);
+let snake      = new Snake();
+let game       = new Game(grid, snake);
+let input      = new Input(snake);
 
-    let frames = 0;
+document.addEventListener('keydown', input.createKeyDownListener());
+document.body.appendChild(renderer.canvas);
 
-    (function loop() {
-        frames++;
+let frames = 0;
 
-        if (frames % game.level.speed === 0) {
-            renderer.render(game.update());
-        }
+(function loop() {
+    frames++;
 
-        window.requestAnimationFrame(loop);
-    })();
+    if (frames % game.level.speed === 0) {
+        renderer.render(game.update());
+    }
 
+    window.requestAnimationFrame(loop);
 })();
