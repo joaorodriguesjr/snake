@@ -17,7 +17,7 @@ describe('Grid', function () {
     it('has all cells initialized with 0', function () {
         for (var row = 0; row < dimensions.rows; row += 1) {
         for (var col = 0; col < dimensions.cols; col += 1) {
-            expect(grid .cells[row][col]).toBe(0);
+            expect(grid.cells[row][col]).toBe(0);
         }}
     });
 
