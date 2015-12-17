@@ -1,3 +1,5 @@
+import Cell from '../src/Cell';
+
 describe('Cell', function () {
     it('has a static property EMPTY', function () {
         expect(Cell.EMPTY).toBe(0);

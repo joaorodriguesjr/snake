@@ -1,4 +1,6 @@
-class Snake {
+import Direction from './Direction';
+
+export default class Snake {
     constructor() {
         this.init();
     }

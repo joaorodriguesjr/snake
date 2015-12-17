@@ -1,4 +1,6 @@
-class Grid {
+import Cell from './Cell';
+
+export default class Grid {
     constructor(dimensions) {
         this.dimensions = dimensions;
         this.init();

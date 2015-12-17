@@ -1,4 +1,4 @@
-class Input {
+export default class Input {
     constructor(snake) {
         this.snake = snake;
     }

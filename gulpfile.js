@@ -1,11 +1,14 @@
 (function() {
     'use strict';
 
+    require('babel-core/register');
+
     let gulp    = require('gulp');
     let babel   = require('gulp-babel');
     let maps    = require('gulp-sourcemaps');
     let concat  = require('gulp-concat');
     let uglify  = require('gulp-uglify');
+    let jasmine = require('gulp-jasmine');
     let cssmin  = require('gulp-cssmin');
     let htmlmin = require('gulp-htmlmin');
     let replace = require('gulp-html-replace');
@@ -48,6 +51,10 @@
             .pipe(replace({js: 'index.js', css: 'index.css'}))
             .pipe(htmlmin({collapseWhitespace: true}))
             .pipe(gulp.dest('./build'));
+    });
+
+    gulp.task('test', function () {
+        return gulp.src('./spec/*.js').pipe(jasmine());
     });
 
     gulp.task('watch', function () {

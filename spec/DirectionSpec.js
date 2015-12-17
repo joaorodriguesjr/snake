@@ -1,3 +1,5 @@
+import Direction from '../src/Direction';
+
 describe('Direction', function () {
     it('has a static property LEFT', function () {
         expect(Direction.LEFT).toBe(1);

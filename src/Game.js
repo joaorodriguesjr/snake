@@ -1,4 +1,7 @@
-class Game {
+import Grid  from './Grid';
+import Snake from './Snake';
+
+export default class Game {
     constructor(grid, snake) {
         this.grid  = grid;
         this.snake = snake;
