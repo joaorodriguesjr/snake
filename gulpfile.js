@@ -41,7 +41,7 @@
     });
 
     gulp.task('watch', function () {
-        watch('./src/*.es6', () => gulp.start('compile:js'));
+        watch('./src/*.js', () => gulp.start('compile:js'));
     });
 
     gulp.task('compile', ['compile:js']);
