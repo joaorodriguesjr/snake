@@ -6,11 +6,13 @@ export default class Snake {
     }
 
     init(position, direction) {
+        this.turns = [];
         this.parts = [this.head = position || {row: 1, col: 1}];
         this.direction = direction || Direction.RIGHT;
     }
 
     calculateNextPosition() {
+        this.updateDirection();
         let {row, col} = this.head;
 
         switch (this.direction) {
@@ -31,6 +33,10 @@ export default class Snake {
         return {row, col};
     }
 
+    updateDirection() {
+        if (this.turns.length > 0) this.direction = this.turns.shift();
+    }
+
     advanceTo(position) {
         this.parts.unshift(this.head = position);
     }
@@ -43,27 +49,27 @@ export default class Snake {
         if (this.direction === Direction.RIGHT)
             return;
 
-        this.direction = Direction.LEFT;
+        this.turns.push(Direction.LEFT);
     }
 
     turnUp() {
         if (this.direction === Direction.DOWN)
             return;
 
-        this.direction = Direction.UP;
+        this.turns.push(Direction.UP);
     }
 
     turnRight() {
         if (this.direction === Direction.LEFT)
             return;
 
-        this.direction = Direction.RIGHT;
+        this.turns.push(Direction.RIGHT);
     }
 
     turnDown() {
         if (this.direction === Direction.UP)
             return;
 
-        this.direction = Direction.DOWN;
+        this.turns.push(Direction.DOWN);
     }
 }
