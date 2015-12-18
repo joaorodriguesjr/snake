@@ -1,3 +1,7 @@
+import Grid  from '../src/Grid';
+import Snake from '../src/Snake';
+import Game  from '../src/Game';
+
 describe('Game', function () {
     var game, grid, snake;
 

@@ -1,3 +1,6 @@
+import Direction from '../src/Direction';
+import Snake     from '../src/Snake';
+
 describe('Snake', function () {
     var snake;
 

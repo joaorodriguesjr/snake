@@ -1,4 +1,4 @@
-class Direction {}
+export default class Direction {}
 
 Direction.LEFT  = 1;
 Direction.UP    = 2;

@@ -1,3 +1,5 @@
+import Input from '../src/Input';
+
 describe('Input', function () {
     var input, keyDownListener;
     var snake = {

@@ -1,4 +1,4 @@
-class Cell {}
+export default class Cell {}
 
 Cell.EMPTY = 0;
 Cell.SNAKE = 1;

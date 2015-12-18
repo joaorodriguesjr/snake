@@ -1,3 +1,6 @@
+import Grid from '../src/Grid';
+import Cell from '../src/Cell';
+
 describe('Grid', function () {
     var grid;
     var dimensions = {rows: 15, cols: 20};

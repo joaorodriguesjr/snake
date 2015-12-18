@@ -1,5 +1,7 @@
+import Renderer from '../src/Renderer';
+
 describe('Renderer', function () {
-    var renderer, canvas, dimensions, state;
+    var renderer, canvas, context, dimensions, state;
 
     beforeEach(function () {
         canvas  = {getContext: function () {}};

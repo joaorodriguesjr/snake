@@ -1,4 +1,6 @@
-class Renderer {
+import Cell from './Cell';
+
+export default class Renderer {
     constructor(canvas, dimensions) {
         this.canvas     = canvas;
         this.dimensions = dimensions;
