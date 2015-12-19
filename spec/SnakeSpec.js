@@ -30,8 +30,8 @@ describe('Snake', function () {
         expect(snake.parts.length).toBe(1);
     });
 
-    it('has commands', function () {
-        expect(snake.commands.length).toBe(0);
+    it('has commands verification', function () {
+        expect(snake.hasCommands()).toBe(false);
     });
 
     it('updates the direction', function () {

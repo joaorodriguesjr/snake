@@ -11,6 +11,17 @@ export default class Snake {
         this.direction = direction || Direction.RIGHT;
     }
 
+    hasCommands() {
+        return this.commands.length > 0;
+    }
+
+    update() {
+        if (! this.hasCommands())
+            return;
+
+        this.direction = this.commands.shift();
+    }
+
     calculateNextPosition() {
         let {row, col} = this.head;
 
@@ -30,10 +41,6 @@ export default class Snake {
         }
 
         return {row, col};
-    }
-
-    update() {
-        if (this.commands.length > 0) this.direction = this.commands.shift();
     }
 
     advanceTo(position) {
