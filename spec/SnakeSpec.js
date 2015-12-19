@@ -34,6 +34,12 @@ describe('Snake', function () {
         expect(snake.commands.length).toBe(0);
     });
 
+    it('updates the direction', function () {
+        snake.turnDown();
+        snake.update();
+        expect(snake.direction).toBe(Direction.DOWN);
+    });
+
     it('is going right', function () {
         expect(snake.direction).toBe(Direction.RIGHT);
     });

@@ -12,7 +12,6 @@ export default class Snake {
     }
 
     calculateNextPosition() {
-        this.updateDirection();
         let {row, col} = this.head;
 
         switch (this.direction) {
@@ -33,7 +32,7 @@ export default class Snake {
         return {row, col};
     }
 
-    updateDirection() {
+    update() {
         if (this.commands.length > 0) this.direction = this.commands.shift();
     }
 

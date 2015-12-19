@@ -17,6 +17,7 @@ describe('Game', function () {
     snake = {
         head: {},
         init: function () {},
+        update: function () {},
         calculateNextPosition: function () {},
         advanceTo: function () {},
         pullTail: function () {}
@@ -74,6 +75,7 @@ describe('Game', function () {
         spyOn(grid , 'detectCollision').and.returnValue(false);
         spyOn(grid , 'hasFruitAt').and.returnValue(false);
         spyOn(grid , 'clearCell');
+        spyOn(snake, 'update');
         spyOn(snake, 'pullTail');
         spyOn(snake, 'advanceTo');
         var state = game.update();
@@ -82,6 +84,7 @@ describe('Game', function () {
         expect(grid.detectCollision).toHaveBeenCalledWith(next);
         expect(grid.hasFruitAt).toHaveBeenCalledWith(next);
         expect(grid.clearCell).toHaveBeenCalled();
+        expect(snake.update).toHaveBeenCalled();
         expect(snake.pullTail).toHaveBeenCalled();
         expect(snake.advanceTo).toHaveBeenCalled();
         expect(grid.markSnakeAt).toHaveBeenCalled();

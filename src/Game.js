@@ -19,6 +19,7 @@ export default class Game {
     }
 
     update() {
+        this.snake.update();
         let next = this.snake.calculateNextPosition();
 
         if (this.grid.detectCollision(next)) {
