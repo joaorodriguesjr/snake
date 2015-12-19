@@ -92,4 +92,16 @@ describe('Snake', function () {
         snake.turnDown();
         expect(snake.commands[0]).toBe(Direction.DOWN);
     });
+
+    it('prevents unwanted moves', function () {
+        snake.direction = Direction.LEFT;
+        snake.turnLeft();
+        snake.direction = Direction.UP;
+        snake.turnUp();
+        snake.direction = Direction.RIGHT;
+        snake.turnRight();
+        snake.direction = Direction.DOWN;
+        snake.turnDown();
+        expect(snake.commands.length).toBe(0);
+    });
 });

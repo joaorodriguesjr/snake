@@ -45,28 +45,28 @@ export default class Snake {
     }
 
     turnLeft() {
-        if (this.direction === Direction.RIGHT)
+        if (this.direction === Direction.RIGHT || this.direction === Direction.LEFT)
             return;
 
         this.commands.push(Direction.LEFT);
     }
 
     turnUp() {
-        if (this.direction === Direction.DOWN)
+        if (this.direction === Direction.DOWN || this.direction === Direction.UP)
             return;
 
         this.commands.push(Direction.UP);
     }
 
     turnRight() {
-        if (this.direction === Direction.LEFT)
+        if (this.direction === Direction.LEFT || this.direction === Direction.RIGHT)
             return;
 
         this.commands.push(Direction.RIGHT);
     }
 
     turnDown() {
-        if (this.direction === Direction.UP)
+        if (this.direction === Direction.UP || this.direction === Direction.DOWN)
             return;
 
         this.commands.push(Direction.DOWN);
