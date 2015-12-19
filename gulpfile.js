@@ -4,7 +4,6 @@
     require('babel-core/register');
 
     let gulp       = require('gulp');
-    let babel      = require('gulp-babel');
     let concat     = require('gulp-concat');
     let uglify     = require('gulp-uglify');
     let jasmine    = require('gulp-jasmine');
