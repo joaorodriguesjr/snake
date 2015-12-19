@@ -66,28 +66,24 @@ describe('Snake', function () {
     it('turns left', function () {
         snake.direction = Direction.DOWN;
         snake.turnLeft();
-        snake.updateDirection();
-        expect(snake.direction).toBe(Direction.LEFT);
+        expect(snake.commands[0]).toBe(Direction.LEFT);
     });
 
     it('turns up', function () {
         snake.direction = Direction.RIGHT;
         snake.turnUp();
-        snake.updateDirection();
-        expect(snake.direction).toBe(Direction.UP);
+        expect(snake.commands[0]).toBe(Direction.UP);
     });
 
     it('turns right', function () {
         snake.direction = Direction.UP;
         snake.turnRight();
-        snake.updateDirection();
-        expect(snake.direction).toBe(Direction.RIGHT);
+        expect(snake.commands[0]).toBe(Direction.RIGHT);
     });
 
     it('turns down', function () {
         snake.direction = Direction.LEFT;
         snake.turnDown();
-        snake.updateDirection();
-        expect(snake.direction).toBe(Direction.DOWN);
+        expect(snake.commands[0]).toBe(Direction.DOWN);
     });
 });
