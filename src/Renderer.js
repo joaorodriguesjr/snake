@@ -1,9 +1,10 @@
 import Cell from './Cell';
 
 export default class Renderer {
-    constructor(canvas, dimensions) {
+    constructor(canvas, dimensions, images) {
         this.canvas     = canvas;
         this.dimensions = dimensions;
+        this.images     = images;
         this.context    = canvas.getContext('2d');
 
         canvas.width  = dimensions.grid.cols * dimensions.cell.width;
@@ -25,9 +26,10 @@ export default class Renderer {
             let x = col * width;
             let y = row * height;
 
-            this.context.beginPath();
-            this.context.rect(x, y, width, height);
-            this.context.stroke();
+            if (state.grid.cells[row][col] === Cell.SNAKE)
+                this.context.drawImage(this.images.snake, x, y);
+            if (state.grid.cells[row][col] === Cell.FRUIT)
+                this.context.drawImage(this.images.fruit, x, y);
         }}
     }
 }

@@ -1,37 +1,27 @@
+import Cell     from '../src/Cell';
 import Renderer from '../src/Renderer';
 
 describe('Renderer', function () {
-    var renderer, canvas, context, dimensions, state;
+    var renderer, canvas, context, dimensions, images, state;
 
     beforeEach(function () {
-        canvas  = {getContext: function () {}};
-        context = {
-            rect:      function () {},
-            stroke:    function () {},
-            fillText:  function () {},
-            beginPath: function () {},
-            clearRect: function () {}
-        };
+        canvas     = {getContext: function () {}};
+        context    = {clearRect: function () {}, drawImage: function () {}};
         dimensions = {grid: {rows: 20, cols: 25}, cell: {width: 25, height: 25}};
+        images     = {snake: 'snake-image', fruit: 'fruit-image'};
+        state      = {score: 0, level: {ID: 1}, grid: {cells: []}};
 
-        state = {
-            score: 0,
-            level: {ID: 1},
-            grid: {cells: []}
-        };
-
-        var row, col;
-        for (row = 0; row < dimensions.grid.rows; row += 1) {
+        for (let row = 0; row < dimensions.grid.rows; row += 1) {
             state.grid.cells[row] = [];
         }
 
-        for (row = 0; row < dimensions.grid.rows; row += 1) {
-        for (col = 0; col < dimensions.grid.cols; col += 1) {
+        for (let row = 0; row < dimensions.grid.rows; row += 1) {
+        for (let col = 0; col < dimensions.grid.cols; col += 1) {
             state.grid.cells[row][col] = 0;
         }}
 
         spyOn(canvas, 'getContext').and.returnValue(context);
-        renderer = new Renderer(canvas, dimensions);
+        renderer = new Renderer(canvas, dimensions, images);
     });
 
     it('has a canvas', function () {
@@ -45,6 +35,10 @@ describe('Renderer', function () {
 
     it('has dimensions', function () {
         expect(renderer.dimensions).toBe(dimensions);
+    });
+
+    it('has images', function () {
+        expect(renderer.images).toBe(images);
     });
 
     it('sets canvas width', function () {
@@ -61,14 +55,17 @@ describe('Renderer', function () {
         expect(context.clearRect).toHaveBeenCalledWith(0, 0, canvas.width, canvas.height);
     });
 
-    it('renders an object', function () {
-        state.grid.cells[0][0] = 1;
-        spyOn(context, 'beginPath');
-        spyOn(context, 'stroke');
-        spyOn(context, 'rect');
+    it('renders snake', function () {
+        state.grid.cells[0][0] = Cell.SNAKE;
+        spyOn(context, 'drawImage');
         renderer.render(state);
-        expect(context.beginPath).toHaveBeenCalled();
-        expect(context.stroke).toHaveBeenCalled();
-        expect(context.rect).toHaveBeenCalledWith(0, 0, 25, 25);
+        expect(context.drawImage).toHaveBeenCalledWith(images.snake, 0, 0);
+    });
+
+    it('renders fruit', function () {
+        state.grid.cells[0][0] = Cell.FRUIT;
+        spyOn(context, 'drawImage');
+        renderer.render(state);
+        expect(context.drawImage).toHaveBeenCalledWith(images.fruit, 0, 0);
     });
 });
