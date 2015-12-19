@@ -12,9 +12,6 @@ export default class Renderer {
 
     render(state) {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.context.font = "15px Monospace";
-        this.context.fillText('SCORE:' + state.score,    50, 50);
-        this.context.fillText('LEVEL:' + state.level.ID, 50, 100);
 
         let width  = this.dimensions.cell.width;
         let height = this.dimensions.cell.height;

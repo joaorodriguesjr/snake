@@ -61,23 +61,6 @@ describe('Renderer', function () {
         expect(context.clearRect).toHaveBeenCalledWith(0, 0, canvas.width, canvas.height);
     });
 
-    it('sets the context font family', function () {
-        renderer.render(state);
-        expect(context.font).toBe('15px Monospace');
-    });
-
-    it('renders the score', function () {
-        spyOn(context, 'fillText');
-        renderer.render(state);
-        expect(context.fillText).toHaveBeenCalledWith('SCORE:0', 50, 50);
-    });
-
-    it('renders the level', function () {
-        spyOn(context, 'fillText');
-        renderer.render(state);
-        expect(context.fillText).toHaveBeenCalledWith('LEVEL:1', 50, 100);
-    });
-
     it('renders an object', function () {
         state.grid.cells[0][0] = 1;
         spyOn(context, 'beginPath');
