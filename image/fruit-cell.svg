@@ -12,15 +12,15 @@
    width="25"
    height="25"
    viewBox="0 0 25 25"
-   id="svg2"
+   id="svg5653"
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="fruit-cell.svg"
-   inkscape:export-filename="/home/junin/Javascript/snake/run/fruit-cell.png"
-   inkscape:export-xdpi="89.444"
-   inkscape:export-ydpi="89.444">
+   inkscape:export-filename="/home/junin/pomodoro/run/fruit.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
-     id="defs4" />
+     id="defs5655" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -29,32 +29,35 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="22.4"
-     inkscape:cx="-1.9866072"
-     inkscape:cy="10.232947"
+     inkscape:cx="11.541312"
+     inkscape:cy="8.9297726"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1-6"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1920"
      inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:snap-grids="true"
-     units="px">
+     units="px"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true">
     <inkscape:grid
        type="xygrid"
-       id="grid4172"
-       empspacing="10" />
+       id="grid6246" />
   </sodipodi:namedview>
   <metadata
-     id="metadata7">
+     id="metadata5658">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,21 +66,35 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-1027.3622)">
-    <g
-       id="layer1-6"
-       inkscape:label="Layer 1"
-       transform="translate(0.1169214,0.0501181)">
-      <rect
-         inkscape:export-filename="/home/junin/Javascript/snake/run/fruit-cell.png"
-         inkscape:export-ydpi="89.443993"
-         inkscape:export-xdpi="89.443993"
-         ry="10"
-         y="1029.8121"
-         x="2.3830786"
-         height="20"
-         width="20"
-         id="rect3336-0"
-         style="fill:#ffd100;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.99900001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:1.20000005;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6269"
+       width="7"
+       height="7.0000172"
+       x="9"
+       y="1029.3622"
+       ry="1.7382812e-05" />
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:1.20000005;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6271"
+       width="7"
+       height="7"
+       x="2"
+       y="1036.3622" />
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:1.20000005;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6273"
+       width="7"
+       height="6.9999828"
+       x="16"
+       y="1036.3622" />
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:1.20000005;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6275"
+       width="7"
+       height="7"
+       x="9"
+       y="1043.3622"
+       ry="1.7382799e-05" />
   </g>
 </svg>
